@@ -1,4 +1,6 @@
-const DOMAIN = 'http://localhost:3131/'
+import qs from 'query-string'
+
+export const DOMAIN = 'http://localhost:3131/'
 
 class ApiCall {
   constructor(domains) {
@@ -17,11 +19,27 @@ class ApiCall {
     return await request.json()
   }
 
-  async get() {}
+  async get(path, searchParams) {
+    return await this.perform(`${path}?${qs.stringify(searchParams)}`)
+  }
 
-  async post() {}
+  async post(path, payload) {
+    return await this.perform(path, payload, {
+      method: 'POST',
+    })
+  }
 
-  async put() {}
+  async put(path, payload) {
+    return await this.perform(path, payload, {
+      method: 'PUT',
+    })
+  }
 
-  async delete() {}
+  async delete(path) {
+    return await this.perform(path, {
+      method: 'DELETE',
+    })
+  }
 }
+
+export default new ApiCall(DOMAIN)

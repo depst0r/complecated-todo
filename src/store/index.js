@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree'
 
-const RootStore = type.model('RootStore', {
+const RootStore = types.model('RootStore', {
   users: UsersStore,
   boards: BoardStore,
 })

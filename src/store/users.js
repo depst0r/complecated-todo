@@ -1,8 +1,8 @@
 import { types, flow } from 'mobx-state-tree'
 import apiCall from '../api'
 
-const UsersStore = types.modal('UsersStore', {
-  id: types.identifierNu,
+const User = types.model('User', {
+  id: types.identifiers,
   createdAt: types.string,
   name: types.string,
   avatar: types.string,

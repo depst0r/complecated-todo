@@ -3,7 +3,7 @@ import qs from 'query-string'
 export const DOMAIN = 'http://localhost:3131/'
 
 class ApiCall {
-  constructor(domains) {
+  constructor(domain) {
     this.domain = domain
   }
 
